@@ -54,7 +54,7 @@ const newManager = employee => {
                   <p class="title is-5"> ${employee.getRole()}</p>
                   <p class="subtitle is-6">Email: ${employee.email}</p>
                   <p class="subtitle is-6">ID: ${employee.id}</p>
-                  <p class="subtitle is-6">Office: ${employee.office}</p>
+                  <p class="subtitle is-6">Office: ${employee.officeNumber}</p>
                 </div>
               </div>
             </div>

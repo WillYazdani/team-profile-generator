@@ -117,7 +117,7 @@ const addEngineer = (employee) => {
             email,
             id
         } = employee
-        let person = new Intern(name, email, id, data.github);
+        let person = new Engineer(name, email, id, data.github);
         employees.push(person);
         newEmployee();
     })
@@ -141,7 +141,7 @@ const addManager = (employee) => {
             email,
             id
         } = employee
-        let person = new Intern(name, email, id, data.office);
+        let person = new Manager(name, email, id, data.office);
         employees.push(person);
         newEmployee();
     })
