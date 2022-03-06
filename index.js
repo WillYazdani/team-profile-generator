@@ -7,7 +7,6 @@ const Manager = require('./lib/Manager');
 // employee
 var employee = [];
 
-
 // initial question
 const newEmployee = () => {
     return inquirer.prompt([{
@@ -20,7 +19,7 @@ const newEmployee = () => {
         if (answer.newEmployee === 'Yes'){
         addEmployee();
         } else {
-            console.log('thank you');
+            console.log('Bye-Bye');
         }
     })
 };
