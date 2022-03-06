@@ -61,3 +61,18 @@ const newManager = employee => {
           </div>
     `;
 };
+
+const newTeam = (employees) => {
+    const team ='';
+    employees.forEach(employee =>{
+        if (employee instanceof Intern) {
+            team += newIntern(employee);
+        } else if (employee instanceof Engineer) {
+            team += newEngineer(employee);
+        } else if (employee instanceof Manager) {
+            team += newManager(employee);
+        };
+    });
+    return team
+};
+
