@@ -10,11 +10,11 @@ const newIntern = employee => {
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <p class="title is-4">${employee.name}</p>
-                  <p class="title is-5">${employee.role}</p>
-                  <p class="subtitle is-6">Email:${employee.email}</p>
-                  <p class="subtitle is-6">ID:${employee.id}</p>
-                  <p class="subtitle is-6">School:${employee.school}</p>
+                  <p class="title is-4"> ${employee.name}</p>
+                  <p class="title is-5"> ${employee.getRole()}</p>
+                  <p class="subtitle is-6">Email: ${employee.email}</p>
+                  <p class="subtitle is-6">ID: ${employee.id}</p>
+                  <p class="subtitle is-6">School: ${employee.school}</p>
                 </div>
               </div>
             </div>
@@ -30,11 +30,11 @@ const newEngineer = employee => {
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <p class="title is-4">${employee.name}</p>
-                  <p class="title is-5">${employee.role}</p>
-                  <p class="subtitle is-6">Email:${employee.email}</p>
-                  <p class="subtitle is-6">ID:${employee.id}</p>
-                  <p class="subtitle is-6">Github:${employee.github}</p>
+                  <p class="title is-4"> ${employee.name}</p>
+                  <p class="title is-5"> ${employee.getRole()}</p>
+                  <p class="subtitle is-6">Email: ${employee.email}</p>
+                  <p class="subtitle is-6">ID: ${employee.id}</p>
+                  <p class="subtitle is-6">Github: ${employee.github}</p>
                 </div>
               </div>
             </div>
@@ -50,11 +50,11 @@ const newManager = employee => {
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <p class="title is-4">${employee.name}</p>
-                  <p class="title is-5">${employee.role}</p>
-                  <p class="subtitle is-6">Email:${employee.email}</p>
-                  <p class="subtitle is-6">ID:${employee.id}</p>
-                  <p class="subtitle is-6">Office:${employee.office}</p>
+                  <p class="title is-4"> ${employee.name}</p>
+                  <p class="title is-5"> ${employee.getRole()}</p>
+                  <p class="subtitle is-6">Email: ${employee.email}</p>
+                  <p class="subtitle is-6">ID: ${employee.id}</p>
+                  <p class="subtitle is-6">Office: ${employee.office}</p>
                 </div>
               </div>
             </div>
