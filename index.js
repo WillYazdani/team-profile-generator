@@ -5,7 +5,7 @@ const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
 // employee
-var employee = [];
+var employees = [];
 
 // initial question
 const newEmployee = () => {
@@ -62,19 +62,19 @@ const addEmployee = () => {
         message: 'Select role:',
         choices: ['Intern', 'Engineer', 'Manager'],
     }])
-    .then(answer => {
-        if (answer.role === 'Intern') {
-            addIntern();
-        } else if (answer.role === 'Engineer') {
-            addEngineer();
-        } else if (answer.role === 'Manager') {
-            addManager();
+    .then(employee => {
+        if (employee.role === 'Intern') {
+            addIntern(employee);
+        } else if (employee.role === 'Engineer') {
+            addEngineer(employee);
+        } else if (employee.role === 'Manager') {
+            addManager(employee);
         }
     })
 };
 
 // Intern info
-const addIntern = () => {
+const addIntern = (employee) => {
     return inquirer.prompt([{
         type: 'input',
         name: 'school',
@@ -85,10 +85,20 @@ const addIntern = () => {
             } return false
         }
     }])
+    .then(data => {
+        const {
+            name,
+            email,
+            id
+        } = employee
+        let person = new Intern(name, email, id, data.school);
+        employees.push(person);
+        newEmployee();
+    })
 };
 
 // Engineer info
-const addEngineer = () => {
+const addEngineer = (employee) => {
     return inquirer.prompt([{
         type: 'input',
         name: 'github',
@@ -99,10 +109,10 @@ const addEngineer = () => {
             } return false
         }
     }])
-}
+};
 
 // Manager info
-const addManager = () => {
+const addManager = (employee) => {
     return inquirer.prompt([{
         type: 'input',
         name: 'office',
@@ -113,6 +123,21 @@ const addManager = () => {
             } return false
         }
     }])
-}
+};
+
+const writeToFile = (data) => {
+    return new Promise((resolve, reject) => { 
+        fs.writeFile('./dist/index.html', data, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: 'New member added.'
+            });
+        });
+    });
+};
 
 newEmployee()
