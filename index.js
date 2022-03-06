@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+const createPage = require('./src/generate-team');
 
 // employee
 var employees = [];
@@ -16,10 +17,11 @@ const newEmployee = () => {
         choices: ['Yes', 'No'],
     }])
     .then(answer => {
-        if (answer.newEmployee === 'Yes'){
+        if (answer.newEmployee === 'Yes') {
         addEmployee();
         } else {
             console.log('Bye-Bye');
+            writeToFile(createPage(employees));
         }
     })
 };
@@ -109,6 +111,16 @@ const addEngineer = (employee) => {
             } return false
         }
     }])
+    .then(data => {
+        const {
+            name,
+            email,
+            id
+        } = employee
+        let person = new Intern(name, email, id, data.github);
+        employees.push(person);
+        newEmployee();
+    })
 };
 
 // Manager info
@@ -123,6 +135,16 @@ const addManager = (employee) => {
             } return false
         }
     }])
+    .then(data => {
+        const {
+            name,
+            email,
+            id
+        } = employee
+        let person = new Intern(name, email, id, data.office);
+        employees.push(person);
+        newEmployee();
+    })
 };
 
 const writeToFile = (data) => {
