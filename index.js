@@ -57,61 +57,38 @@ const addEmployee = () => {
         type: 'list',
         name: 'role',
         message: 'Select role:',
-        choices: ['Intern', 'Engineer', 'Manager']
-    }
-])
+        choices: ['Intern', 'Engineer', 'Manager'],
+    }])
+    .then(answer => {
+        if (answer.role === 'Intern') {
+            addIntern();
+        } else if (answer.role === 'Engineer') {
+            addEngineer();
+        } else if (answer.role === 'Manager') {
+            addManager();
+        }
+    })
+};
+
+// Intern info
+const addIntern = () => {
+    return inquirer.prompt([{
+
+    }])
+}
+
+// Engineer info
+const addIntern = () => {
+    return inquirer.prompt([{
+        
+    }])
+}
+
+// Manager info
+const addIntern = () => {
+    return inquirer.prompt([{
+        
+    }])
 }
 
 newEmployee()
-
-
-
-
-
-
-
-
-
-
-const newEngineer = [
-    {
-        type: 'input',
-        name: 'name',
-        message: 'Enter employee name:',
-        validate: (userInput) => {
-            if (userInput) {
-                return true;
-            } return false;
-        }
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'Enter employee email:',
-        validate: (userInput) => {
-            if (userInput) {
-                return true;
-            } return false;
-        }
-    },
-    {
-        type: 'input',
-        name: 'id',
-        message: 'Enter employee ID:',
-        validate: (userInput) => {
-            if (userInput) {
-                return true
-            } return false;
-        }
-    },
-    {
-        type: 'input',
-        name: 'github',
-        message: 'Enter employee Github:',
-        validate: (userInput) => {
-            if (userInput) {
-                return true
-            } return false;
-        }
-    }
-]
