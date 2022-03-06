@@ -4,6 +4,10 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
+// employee
+var employee = [];
+
+
 // initial question
 const newEmployee = () => {
     return inquirer.prompt([{
@@ -73,21 +77,42 @@ const addEmployee = () => {
 // Intern info
 const addIntern = () => {
     return inquirer.prompt([{
-
+        type: 'input',
+        name: 'school',
+        message: "Enter employee's shool:",
+        validate: (userInput) => {
+            if (userInput) {
+                return true
+            } return false
+        }
     }])
-}
+};
 
 // Engineer info
-const addIntern = () => {
+const addEngineer = () => {
     return inquirer.prompt([{
-        
+        type: 'input',
+        name: 'github',
+        message: "Enter employee's Github username:",
+        validate: (userInput) => {
+            if (userInput) {
+                return true
+            } return false
+        }
     }])
 }
 
 // Manager info
-const addIntern = () => {
+const addManager = () => {
     return inquirer.prompt([{
-        
+        type: 'input',
+        name: 'office',
+        message: "Enter employee's office number:",
+        validate: (userInput) => {
+            if (userInput) {
+                return true
+            } return false
+        }
     }])
 }
 
